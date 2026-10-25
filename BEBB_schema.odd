@@ -832,7 +832,6 @@
                                                 <attDef ident="synch" mode="delete"/>
                                                 <attDef ident="type" mode="delete"/>
                                                 <attDef ident="xml:base" mode="delete"/>
-                                                <attDef ident="xml:id" mode="delete"/>
                                                 <attDef ident="xml:lang" mode="delete"/>
                                                 <attDef ident="xml:space" mode="delete"/>
                                         </attList>
@@ -1297,7 +1296,6 @@
                                                 <attDef ident="resp" mode="delete"/>
                                                 <attDef ident="sameAs" mode="delete"/>
                                                 <attDef ident="select" mode="delete"/>
-                                                <attDef ident="source" mode="delete"/>
                                                 <attDef ident="spanTo" mode="delete"/>
                                                 <attDef ident="style" mode="delete"/>
                                                 <attDef ident="subtype" mode="delete"/>
