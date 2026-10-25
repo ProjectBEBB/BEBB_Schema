@@ -539,7 +539,6 @@
                                                 <attDef ident="atLeast" mode="delete"/>
                                                 <attDef ident="atMost" mode="delete"/>
                                                 <attDef ident="calendar" mode="change"/>
-                                                <attDef ident="cert" mode="delete"/>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="confidence" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
@@ -1622,7 +1621,6 @@
                                                 <attDef ident="ana" mode="delete"/>
                                                 <attDef ident="atLeast" mode="delete"/>
                                                 <attDef ident="atMost" mode="delete"/>
-                                                <attDef ident="cert" mode="delete"/>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="confidence" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
@@ -3725,7 +3723,6 @@
                                                 <attDef ident="ana" mode="delete"/>
                                                 <attDef ident="atLeast" mode="delete"/>
                                                 <attDef ident="atMost" mode="delete"/>
-                                                <attDef ident="cert" mode="delete"/>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="confidence" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
