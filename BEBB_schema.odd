@@ -269,7 +269,11 @@
                                                 <attDef ident="min" mode="delete"/>
                                                 <attDef ident="n" mode="delete"/>
                                                 <attDef ident="next" mode="delete"/>
-                                                <attDef ident="place" mode="delete"/>
+                                                <attDef ident="place" mode="change" usage="opt">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="bottom"><desc xml:lang="en">Addition written at the foot of the source page.</desc></valItem>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="precision" mode="delete"/>
                                                 <attDef ident="prev" mode="delete"/>
                                                 <attDef ident="quantity" mode="delete"/>
