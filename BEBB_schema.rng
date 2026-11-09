@@ -3248,6 +3248,12 @@ Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inche
          <ref name="tei_macro.specialPara"/>
          <ref name="tei_att.cmc.attributes"/>
          <optional>
+            <attribute name="rend">
+               <value>unmarked</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">The source does not mark the passage as a quotation.</a:documentation>
+            </attribute>
+         </optional>
+         <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
                <choice>
@@ -3257,6 +3263,8 @@ Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inche
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>direct</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>long</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Marks a long quotation.</a:documentation>
                </choice>
             </attribute>
          </optional>

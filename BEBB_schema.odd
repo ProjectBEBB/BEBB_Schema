@@ -1416,7 +1416,12 @@
                                                 <attDef ident="next" mode="delete"/>
                                                 <attDef ident="notation" mode="delete"/>
                                                 <attDef ident="prev" mode="delete"/>
-                                                <attDef ident="rend" mode="delete"/>
+                                                <attDef ident="rend" mode="change" usage="opt">
+                                                  <datatype><dataRef key="teidata.enumerated"/></datatype>
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="unmarked"><desc xml:lang="en">The source does not mark the passage as a quotation.</desc></valItem>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="rendition" mode="delete"/>
                                                 <attDef ident="resp" mode="delete"/>
                                                 <attDef ident="sameAs" mode="delete"/>
@@ -1434,6 +1439,7 @@
                                                   <valItem ident="indirect"/>
                                                   <valItem ident="paraphrase"/>
                                                   <valItem ident="direct"/>
+                                                  <valItem ident="long"><desc xml:lang="en">Marks a long quotation.</desc></valItem>
                                                   </valList>
                                                 </attDef>
                                         </attList>
