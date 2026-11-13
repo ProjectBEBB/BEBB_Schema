@@ -2437,7 +2437,9 @@
                                                 <attDef ident="from" mode="delete"/>
                                                 <attDef ident="from-custom" mode="delete"/>
                                                 <attDef ident="from-iso" mode="delete"/>
-                                                <attDef ident="n" mode="delete"/>
+                                                <attDef ident="n" mode="change" usage="opt">
+                                                  <desc xml:lang="en">Identifies the release described by a release change entry. The value must match the release identifier in the BEBB release manifest.</desc>
+                                                </attDef>
                                                 <attDef ident="next" mode="delete"/>
                                                 <attDef ident="notAfter-custom" mode="delete"/>
                                                 <attDef ident="notBefore-custom" mode="delete"/>
@@ -2458,7 +2460,14 @@
                                                 <attDef ident="to" mode="delete"/>
                                                 <attDef ident="to-custom" mode="delete"/>
                                                 <attDef ident="to-iso" mode="delete"/>
-                                                <attDef ident="type" mode="delete"/>
+                                                <attDef ident="type" mode="change" usage="opt">
+                                                  <desc xml:lang="en">Classifies a change as a BEBB release entry.</desc>
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="release">
+                                                      <desc xml:lang="en">Records the publication of the document in a BEBB release.</desc>
+                                                    </valItem>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="when-custom" mode="delete"/>
                                                 <attDef ident="when-iso" mode="delete"/>
                                                 <attDef ident="xml:base" mode="delete"/>
@@ -2472,6 +2481,22 @@
                                                 </attDef>
                                                 <attDef ident="ref" mode="delete"/>
                                         </attList>
+                                        <constraintSpec ident="release-change-metadata" scheme="schematron">
+                                          <constraint>
+                                            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:tei="http://www.tei-c.org/ns/1.0" context="tei:change[@type = 'release']">
+                                              <sch:let name="release-id" value="string(@n)"/>
+                                              <sch:assert test="@n and normalize-space(@n)">A release change must identify the release with @n.</sch:assert>
+                                              <sch:assert test="@ana = ('changed', 'noChange')">A release change must carry exactly one @ana value: changed or noChange.</sch:assert>
+                                              <sch:assert test="@when and matches(string(@when), '^\d{4}-\d{2}-\d{2}$')">A release change must carry a complete ISO publication date in @when (YYYY-MM-DD).</sch:assert>
+                                              <sch:assert test="@who and count(tokenize(normalize-space(string(@who)), '\s+')) = 1">A release change must identify exactly one responsible human editor with @who.</sch:assert>
+                                              <sch:assert test="not(@n) or count(ancestor::tei:TEI[1]//tei:change[@type = 'release' and @n = $release-id]) = 1">A TEI document may contain at most one release change for each release identifier.</sch:assert>
+                                              <sch:assert test="not(preceding-sibling::*)">A release change must be the first entry in its listChange.</sch:assert>
+                                            </sch:rule>
+                                            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:tei="http://www.tei-c.org/ns/1.0" context="tei:change[tokenize(normalize-space(string(@ana)), '\s+') = ('changed', 'noChange')]">
+                                              <sch:assert test="@type = 'release'">The @ana values changed and noChange are reserved for release change entries.</sch:assert>
+                                            </sch:rule>
+                                          </constraint>
+                                        </constraintSpec>
                                 </elementSpec>
                                 <elementSpec ident="correspAction" module="header" mode="change">
                                         <attList>

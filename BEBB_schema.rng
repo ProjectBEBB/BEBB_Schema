@@ -5036,11 +5036,48 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
       <element name="change">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(change) documents a change or set of changes made during the production of a source document, or during the revision of an electronic file. [2.6. The Revision Description 2.4.1. Creation 12.7. Identifying Changes and Revisions]</a:documentation>
          <ref name="tei_macro.specialPara"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  id="BEBB_schema-change-release-change-metadata-constraint-rule-release">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      context="tei:change[@type = 'release']">
+               <sch:let name="release-id" value="string(@n)"/>
+               <sch:assert test="@n and normalize-space(@n)">A release change must identify the release with @n.</sch:assert>
+               <sch:assert test="@ana = ('changed', 'noChange')">A release change must carry exactly one @ana value: changed or noChange.</sch:assert>
+               <sch:assert test="@when and matches(string(@when), '^\d{4}-\d{2}-\d{2}$')">A release change must carry a complete ISO publication date in @when (YYYY-MM-DD).</sch:assert>
+               <sch:assert test="@who and count(tokenize(normalize-space(string(@who)), '\s+')) = 1">A release change must identify exactly one responsible human editor with @who.</sch:assert>
+               <sch:assert test="not(@n) or count(ancestor::tei:TEI[1]//tei:change[@type = 'release' and @n = $release-id]) = 1">A TEI document may contain at most one release change for each release identifier.</sch:assert>
+               <sch:assert test="not(preceding-sibling::*)">A release change must be the first entry in its listChange.</sch:assert>
+            </sch:rule>
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      context="tei:change[tokenize(normalize-space(string(@ana)), '\s+') = ('changed', 'noChange')]">
+               <sch:assert test="@type = 'release'">The @ana values changed and noChange are reserved for release change entries.</sch:assert>
+            </sch:rule>
+         </pattern>
          <ref name="tei_att.global.analytic.attribute.ana"/>
          <ref name="tei_att.ascribed.attributes"/>
          <ref name="tei_att.datable.w3c.attribute.when"/>
          <ref name="tei_att.datable.w3c.attribute.notBefore"/>
          <ref name="tei_att.datable.w3c.attribute.notAfter"/>
+         <optional>
+            <attribute name="n">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(number) Identifies the release described by a release change entry. The value must match the release identifier in the BEBB release manifest.</a:documentation>
+               <data type="string"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Classifies a change as a BEBB release entry.</a:documentation>
+               <choice>
+                  <value>release</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Records the publication of the document in a BEBB release.</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
