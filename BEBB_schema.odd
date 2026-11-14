@@ -979,7 +979,9 @@
                                                 <attDef ident="prev" mode="delete"/>
                                                 <attDef ident="rend" mode="delete"/>
                                                 <attDef ident="rendition" mode="delete"/>
-                                                <attDef ident="resp" mode="delete"/>
+                                                <attDef ident="resp" mode="change" usage="opt">
+                                                  <desc xml:lang="en">Identifies the editor responsible for a list item, including a newly documented entry in a local revision history.</desc>
+                                                </attDef>
                                                 <attDef ident="sameAs" mode="delete"/>
                                                 <attDef ident="select" mode="delete"/>
                                                 <attDef ident="sortKey" mode="delete"/>
@@ -1190,6 +1192,9 @@
                                                   <valItem ident="dataGroup" mode="add"/>
                                                   <valItem mode="add" ident="bio"/>
                                                   <valItem mode="add" ident="description"/>
+                                                  <valItem mode="add" ident="revisionDesc">
+                                                    <desc xml:lang="en">Contains the local revision history of a person fragment.</desc>
+                                                  </valItem>
                                                   <valItem mode="add" ident="archival">
                                                     <desc xml:lang="de">Kennzeichnet eine archivische Anmerkung.</desc>
                                                   </valItem>
@@ -2228,6 +2233,20 @@
                                                   <defaultVal>main</defaultVal>
                                                 </attDef>
                                         </attList>
+                                        <constraintSpec ident="person-revision-history" scheme="schematron">
+                                          <constraint>
+                                            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:tei="http://www.tei-c.org/ns/1.0" context="tei:person">
+                                              <sch:assert test="count(tei:note[@type = 'revisionDesc']) le 1">A person may contain at most one local revision history note.</sch:assert>
+                                            </sch:rule>
+                                            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:tei="http://www.tei-c.org/ns/1.0" context="tei:person/tei:note[@type = 'revisionDesc']">
+                                              <sch:assert test="count(*) = 1 and count(tei:list) = 1 and not(text()[normalize-space()])">A person revision history note must contain exactly one direct list and no other direct content.</sch:assert>
+                                            </sch:rule>
+                                            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:tei="http://www.tei-c.org/ns/1.0" context="tei:person/tei:note[@type = 'revisionDesc']/tei:list/tei:item">
+                                              <sch:assert test="count(tei:date) = 1 and tei:date/@when">Each person revision history item must contain exactly one direct date with @when.</sch:assert>
+                                              <sch:assert test="matches(normalize-space(string-join(.//text()[not(ancestor::tei:date)], ' ')), '[\p{L}\p{N}]')">Each person revision history item must contain a non-empty description in addition to the date.</sch:assert>
+                                            </sch:rule>
+                                          </constraint>
+                                        </constraintSpec>
                                 </elementSpec>
                                 <elementSpec ident="place" module="namesdates" mode="change">
                                         <attList>
