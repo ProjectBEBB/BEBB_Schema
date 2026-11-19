@@ -3868,6 +3868,8 @@ Sample values include: </a:documentation>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xml:lang="de">Kennzeichnet eine archivische Anmerkung.</a:documentation>
                   <value>postal</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xml:lang="de">Kennzeichnet eine postalische Anmerkung.</a:documentation>
+                  <value>relatedItem</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Catalog-derived aggregate note generated from MARC fields describing other versions or related materials. This note type is distinct from the structured TEI relatedItem element containing bibl and does not replace it.</a:documentation>
                </choice>
             </attribute>
          </optional>

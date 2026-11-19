@@ -12,7 +12,8 @@
 <!ENTITY ber '<choice><orig><g ref="#ber">&#x0180;</g></orig><reg>ber</reg></choice>' >
 <!ENTITY C '<g ref="#C">c</g>' >
 <!ENTITY con '<choice><orig><g ref="#con">ꝯ</g></orig><reg>con</reg></choice>' >
-<!ENTITY daß '<choice><orig><g ref="#daß">dß</g></orig><reg>daß</reg></choice>' >
+<!-- Für dieses Kürzungszeichen ist derzeit keine geeignete typographische Wiedergabe festgelegt. Es wird deshalb in beiden Fassungen als «daß» wiedergegeben. Die Entity &daß; kennzeichnet weiterhin das handschriftliche Kürzungszeichen. -->
+<!ENTITY daß '<choice><orig><g ref="#daß">daß</g></orig><reg>daß</reg></choice>' >
 <!ENTITY die '<choice><orig><g ref="#die">đ</g></orig><reg>die</reg></choice>' >
 <!ENTITY eacut '<choice><orig><g ref="#eacut">é</g></orig><reg>e</reg></choice>' >
 <!ENTITY Eacut '<choice><orig><g ref="#Eacut">É</g></orig><reg>E</reg></choice>' >
@@ -21,7 +22,8 @@
 <!ENTITY ehat '<choice><orig><g ref="#ehat">ê</g></orig><reg>e</reg></choice>' >
 <!ENTITY em '<choice><orig><g ref="#em">ē</g></orig><reg>em</reg></choice>' >
 <!ENTITY emacron '<choice><orig><g ref="#emacron">ē</g></orig><reg>e</reg></choice>' >
-<!ENTITY der '<choice><orig><g ref="#der">&#x20B0;</g></orig><reg>der</reg></choice>' >
+<!-- Für dieses Kürzungszeichen ist derzeit keine geeignete typographische Wiedergabe festgelegt. Es wird deshalb in beiden Fassungen als «der» wiedergegeben. Die Entity &der; kennzeichnet weiterhin das handschriftliche Kürzungszeichen. -->
+<!ENTITY der '<choice><orig><g ref="#der">der</g></orig><reg>der</reg></choice>' >
 <!ENTITY en '<choice><orig><g ref="#en">ē</g></orig><reg>en</reg></choice>' >
 <!ENTITY er '<choice><orig><g ref="#er">&#x035B;</g></orig><reg>er</reg></choice>' >
 <!ENTITY esse '<choice><orig><g ref="#esse">e&#x0360;e</g></orig><reg>esse</reg></choice>' >
@@ -54,7 +56,7 @@
 <!ENTITY on '<choice><orig><g ref="#on">ō</g></orig><reg>on</reg></choice>' >
 <!ENTITY par '<choice><orig><g ref="#par">&#42833;</g></orig><reg>par</reg></choice>' >
 <!ENTITY per '<choice><orig><g ref="#per">&#42833;</g></orig><reg>per</reg></choice>' >
-<!ENTITY pp '<choice><orig><g ref="#pp">pp.</g></orig><reg>etc.</reg></choice>' >
+<!ENTITY pp '<choice><orig><g ref="#pp">ꝛc.</g></orig><reg>etc.</reg></choice>' >
 <!ENTITY prae '<choice><orig><g ref="#prae">&#xA755;</g></orig><reg>prae</reg></choice>' >
 <!ENTITY pro '<choice><orig><g ref="#pro">&#xA753;</g></orig><reg>pro</reg></choice>' >
 <!ENTITY qua '<choice><orig><g ref="#qua">q&#772;</g></orig><reg>qua</reg></choice>' >
@@ -72,7 +74,6 @@
 <!ENTITY ydots '<choice><orig><g ref="#ydots">ÿ</g></orig><reg>y</reg></choice>' >
 <!ENTITY und '<choice><orig><g ref="#und">[und]</g></orig><reg>und</reg></choice>' >
 <!ENTITY undlig '<choice><orig><g ref="#undlig">&amp;</g></orig><reg>und</reg></choice>' >
-<!ENTITY Eu '<choice><orig><g ref="#ue">uͤ</g></orig><reg>ü</reg></choice>' >
 <!ENTITY u '<choice><orig><g ref="#u">v</g></orig><reg>u</reg></choice>' >
 <!ENTITY U '<choice><orig><g ref="#U">V</g></orig><reg>U</reg></choice>' >
 <!ENTITY ue '<choice><orig><g ref="#ue">uͤ</g></orig><reg>ü</reg></choice>' >

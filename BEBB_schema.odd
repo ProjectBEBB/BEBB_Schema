@@ -1201,6 +1201,9 @@
                                                   <valItem mode="add" ident="postal">
                                                     <desc xml:lang="de">Kennzeichnet eine postalische Anmerkung.</desc>
                                                   </valItem>
+                                                  <valItem mode="add" ident="relatedItem">
+                                                    <desc xml:lang="en">Catalog-derived aggregate note generated from MARC fields describing other versions or related materials. This note type is distinct from the structured TEI relatedItem element containing bibl and does not replace it.</desc>
+                                                  </valItem>
                                                   </valList>
                                                 </attDef>
                                         </attList>
