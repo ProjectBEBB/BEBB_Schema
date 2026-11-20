@@ -68,7 +68,7 @@
                                         hand has actually been identified.</p>
                         </div>
                         <schemaSpec ident="BEBB_schema" docLang="en" prefix="tei_" start="TEI" xml:lang="en" targetLang="en">
-                                <moduleRef key="core" except="binaryObject cb citedRange desc distinct divGen ellipsis email emph gb gloss headItem headLabel index label measureGrp media meeting mentioned milestone noteGrp num postBox postCode rb rt ruby soCalled sp speaker stage street teiCorpus textLang time unit"/>
+                                <moduleRef key="core" except="binaryObject cb citedRange distinct divGen ellipsis email emph gb gloss headItem headLabel index measureGrp media meeting milestone noteGrp num postBox postCode rb rt ruby soCalled sp speaker stage street teiCorpus textLang time unit"/>
                                 <elementSpec ident="measure" module="core" mode="change">
                                         <attList>
                                                 <attDef ident="ana" mode="delete"/>
@@ -106,7 +106,7 @@
                                         </attList>
                                 </elementSpec>
                                 <moduleRef key="tei" except=""/>
-                                <moduleRef key="header" except="appInfo application biblFull cRefPattern citeData citeStructure classCode conversion correction creation distributor editorialDecl geoDecl hyphenation interpretation listPrefixDef namespace normalization prefixDef principal projectDesc punctuation quotation refState refsDecl rendition samplingDecl schemaRef scriptNote segmentation sponsor stdVals styleDefDecl tagUsage tagsDecl unitDecl unitDef xenoData"/>
+                                <moduleRef key="header" except="appInfo application biblFull cRefPattern citeData citeStructure classCode conversion correction creation distributor geoDecl hyphenation interpretation listPrefixDef namespace normalization prefixDef principal punctuation quotation refState refsDecl rendition samplingDecl schemaRef scriptNote segmentation sponsor stdVals styleDefDecl tagUsage tagsDecl unitDecl unitDef xenoData"/>
                                 <moduleRef key="textstructure" except="argument byline div2 div3 div4 div5 div6 div7 docAuthor docDate docEdition docImprint docTitle epigraph floatingText group imprimatur titlePage titlePart trailer"/>
                                 <elementSpec ident="ptr" module="core" mode="change">
                                         <attList>
@@ -583,7 +583,18 @@
                                                 <attDef ident="synch" mode="delete"/>
                                                 <attDef ident="to-custom" mode="delete"/>
                                                 <attDef ident="to-iso" mode="delete"/>
-                                                <attDef ident="type" mode="delete"/>
+                                                <attDef ident="type" mode="change">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="attestation"/>
+                                                    <valItem ident="guidance"/>
+                                                    <valItem ident="instruction"/>
+                                                    <valItem ident="matriculation"/>
+                                                    <valItem ident="request"/>
+                                                    <valItem ident="sort"/>
+                                                    <valItem ident="studyContext"/>
+                                                    <valItem ident="teachingContext"/>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="unit" mode="delete"/>
                                                 <attDef ident="when-custom" mode="change"/>
                                                 <attDef ident="when-iso" mode="delete"/>
@@ -903,7 +914,8 @@
                                                   <valItem ident="i" mode="add"/>
                                                   <valItem ident="b" mode="add"/>
                                                   <valItem ident="sub" mode="add"/>
-                                                  <valItem mode="add" ident="overline"/></valList>
+                                                  <valItem mode="add" ident="overline"/>
+                                                  <valItem mode="add" ident="exampleHeading"/></valList>
                                                 </attDef>
                                                 <attDef ident="resp" mode="delete"/>
                                                 <attDef ident="sameAs" mode="delete"/>
@@ -967,7 +979,7 @@
                                 </elementSpec>
                                 <elementSpec ident="item" module="core" mode="change">
                                         <attList>
-                                                <attDef ident="ana" mode="delete"/>
+                                                <attDef ident="ana" mode="change"/>
                                                 <attDef ident="cert" mode="delete"/>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
@@ -984,12 +996,12 @@
                                                 </attDef>
                                                 <attDef ident="sameAs" mode="delete"/>
                                                 <attDef ident="select" mode="delete"/>
-                                                <attDef ident="sortKey" mode="delete"/>
-                                                <attDef ident="source" mode="delete"/>
+                                                <attDef ident="sortKey" mode="change"/>
+                                                <attDef ident="source" mode="change"/>
                                                 <attDef ident="style" mode="delete"/>
                                                 <attDef ident="synch" mode="delete"/>
                                                 <attDef ident="xml:base" mode="delete"/>
-                                                <attDef ident="xml:id" mode="delete"/>
+                                                <attDef ident="xml:id" mode="change"/>
                                                 <attDef ident="xml:lang" mode="delete"/>
                                                 <attDef ident="xml:space" mode="delete"/>
                                         </attList>
@@ -1070,7 +1082,7 @@
                                 </elementSpec>
                                 <elementSpec ident="list" module="core" mode="change">
                                         <attList>
-                                                <attDef ident="ana" mode="delete"/>
+                                                <attDef ident="ana" mode="change"/>
                                                 <attDef ident="cert" mode="delete"/>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
@@ -1080,7 +1092,11 @@
                                                 <attDef ident="n" mode="delete"/>
                                                 <attDef ident="next" mode="delete"/>
                                                 <attDef ident="prev" mode="delete"/>
-                                                <attDef ident="rend" mode="delete"/>
+                                                <attDef ident="rend" mode="change">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="bulleted"/>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="rendition" mode="delete"/>
                                                 <attDef ident="resp" mode="delete"/>
                                                 <attDef ident="sameAs" mode="delete"/>
@@ -1090,7 +1106,17 @@
                                                 <attDef ident="style" mode="delete"/>
                                                 <attDef ident="subtype" mode="delete"/>
                                                 <attDef ident="synch" mode="delete"/>
-                                                <attDef ident="type" mode="delete"/>
+                                                <attDef ident="type" mode="change">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="additionalStudyRecords"/>
+                                                    <valItem ident="boundaryCases"/>
+                                                    <valItem ident="matriculationEntries"/>
+                                                    <valItem ident="researchCases"/>
+                                                    <valItem ident="students"/>
+                                                    <valItem ident="works"/>
+                                                    <valItem ident="simple"/>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="xml:base" mode="delete"/>
                                                 <attDef ident="xml:id" mode="delete"/>
                                                 <attDef ident="xml:lang" mode="delete"/>
@@ -1127,7 +1153,7 @@
                                 </elementSpec>
                                 <elementSpec ident="note" module="core" mode="change">
                                         <attList>
-                                                <attDef ident="ana" mode="delete"/>
+                                                <attDef ident="ana" mode="change"/>
                                                 <attDef ident="anchored" mode="delete"/>
                                                 <attDef ident="cert" mode="change">
                                                   <valList type="closed" mode="replace">
@@ -1204,6 +1230,10 @@
                                                   <valItem mode="add" ident="relatedItem">
                                                     <desc xml:lang="en">Catalog-derived aggregate note generated from MARC fields describing other versions or related materials. This note type is distinct from the structured TEI relatedItem element containing bibl and does not replace it.</desc>
                                                   </valItem>
+                                                  <valItem mode="add" ident="sourcePosition"/>
+                                                  <valItem mode="add" ident="sourceSection"/>
+                                                  <valItem mode="add" ident="dating"/>
+                                                  <valItem mode="add" ident="research"/>
                                                   </valList>
                                                 </attDef>
                                         </attList>
@@ -1236,7 +1266,7 @@
                                 </elementSpec>
                                 <elementSpec ident="p" module="core" mode="change">
                                         <attList>
-                                                <attDef ident="ana" mode="delete"/>
+                                                <attDef ident="ana" mode="change"/>
                                                 <attDef ident="cert" mode="delete"/>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
@@ -1256,7 +1286,7 @@
                                                 <attDef ident="style" mode="delete"/>
                                                 <attDef ident="synch" mode="delete"/>
                                                 <attDef ident="xml:base" mode="delete"/>
-                                                <attDef ident="xml:id" mode="delete"/>
+                                                <attDef ident="xml:id" mode="change"/>
                                                 <attDef ident="xml:lang" mode="delete"/>
                                                 <attDef ident="xml:space" mode="delete"/>
                                                 <attDef ident="rend" mode="change">
@@ -1479,9 +1509,11 @@
                                                 <attDef ident="subtype" mode="delete"/>
                                                 <attDef ident="synch" mode="delete"/>
                                                 <attDef ident="targetLang" mode="delete"/>
-                                                <attDef ident="type" mode="delete">
-                                                  <valList type="closed" mode="change">
-                                                  <valItem mode="add" ident="wikipedia"/>
+                                                <attDef ident="type" mode="change">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="bibliography"/>
+                                                    <valItem ident="external"/>
+                                                    <valItem ident="wikipedia"/>
                                                   </valList>
                                                 </attDef>
                                                 <attDef ident="xml:base" mode="delete"/>
@@ -1676,10 +1708,16 @@
                                                 <attDef ident="type" mode="change">
                                                   <valList type="closed" mode="replace">
                                                     <valItem ident="Korrespondenz"/>
+                                                    <valItem ident="Briefwechsel"/>
                                                   </valList>
                                                 </attDef>
                                                 <attDef ident="version" mode="delete"/>
-                                                <attDef ident="xml:lang" mode="delete"/>
+                                                <attDef ident="xml:lang" mode="change">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="de"/>
+                                                    <valItem ident="en"/>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="xml:space" mode="delete"/>
                                         </attList>
                                 </elementSpec>
@@ -2707,7 +2745,7 @@
                                                 <attDef ident="style" mode="delete"/>
                                                 <attDef ident="synch" mode="delete"/>
                                                 <attDef ident="xml:base" mode="delete"/>
-                                                <attDef ident="xml:id" mode="delete"/>
+                                                <attDef ident="xml:id" mode="change"/>
                                                 <attDef ident="xml:lang" mode="delete"/>
                                                 <attDef ident="xml:space" mode="delete"/>
                                         </attList>
@@ -2733,7 +2771,7 @@
                                                 <attDef ident="style" mode="delete"/>
                                                 <attDef ident="synch" mode="delete"/>
                                                 <attDef ident="xml:base" mode="delete"/>
-                                                <attDef ident="xml:id" mode="delete"/>
+                                                <attDef ident="xml:id" mode="change"/>
                                                 <attDef ident="xml:lang" mode="delete"/>
                                                 <attDef ident="xml:space" mode="delete"/>
                                         </attList>
@@ -3152,12 +3190,12 @@
                                                   <valList type="closed" mode="replace">
                                                   <valItem ident="inventarisiert"/>
                                                   <valItem ident="transkribiert"/>
-                                                  <valItem ident="teiKodiert"/>
                                                   <valItem ident="kollationiert"/>
                                                   <valItem ident="grundkommentiert"/>
                                                   <valItem ident="kommentiert"/>
                                                   <valItem ident="gedruckt"/>
                                                   <valItem ident="generated"/>
+                                                  <valItem ident="draft"/>
                                                   </valList>
                                                 </attDef>
                                         </attList>
@@ -3346,8 +3384,11 @@
                                 <elementSpec ident="rs" module="core" mode="change">
                                         <attList>
                                                 <attDef ident="ana" mode="delete"/>
-                                                <attDef ident="cert" mode="delete">
-                                                  <defaultVal>low</defaultVal>
+                                                <attDef ident="cert" mode="change">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="high"/>
+                                                    <valItem ident="low"/>
+                                                  </valList>
                                                 </attDef>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
@@ -3552,7 +3593,7 @@
                                 </elementSpec>
                                 <elementSpec ident="figure" module="figures" mode="change">
                                         <attList>
-                                                <attDef ident="ana" mode="delete"/>
+                                                <attDef ident="ana" mode="change"/>
                                                 <attDef ident="cert" mode="delete"/>
                                                 <attDef ident="change" mode="delete"/>
                                                 <attDef ident="copyOf" mode="delete"/>
@@ -3563,7 +3604,7 @@
                                                 <attDef ident="place" mode="delete"/>
                                                 <attDef ident="prev" mode="delete"/>
                                                 <attDef ident="rend" mode="delete"/>
-                                                <attDef ident="rendition" mode="delete"/>
+                                                <attDef ident="rendition" mode="change"/>
                                                 <attDef ident="resp" mode="delete"/>
                                                 <attDef ident="sameAs" mode="delete"/>
                                                 <attDef ident="select" mode="delete"/>
@@ -3571,9 +3612,14 @@
                                                 <attDef ident="style" mode="delete"/>
                                                 <attDef ident="subtype" mode="delete"/>
                                                 <attDef ident="synch" mode="delete"/>
-                                                <attDef ident="type" mode="delete"/>
+                                                <attDef ident="type" mode="change">
+                                                  <valList type="closed" mode="replace">
+                                                    <valItem ident="manuscriptExample"/>
+                                                    <valItem ident="mufiReference"/>
+                                                  </valList>
+                                                </attDef>
                                                 <attDef ident="xml:base" mode="delete"/>
-                                                <attDef ident="xml:id" mode="delete"/>
+                                                <attDef ident="xml:id" mode="change"/>
                                                 <attDef ident="xml:lang" mode="delete"/>
                                                 <attDef ident="xml:space" mode="delete"/>
                                                 <attDef ident="hand" mode="change">
@@ -4678,7 +4724,8 @@
                                                 </attDef>
                                         </attList>
                                 </elementSpec>
-                        <classRef key="att.global.linking"/><moduleRef key="linking" include="seg"/><elementSpec ident="seg" mode="change"><classes mode="change"><memberOf key="att.cmc" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.notated" mode="delete"/><memberOf key="att.segLike" mode="delete"/><memberOf key="att.written" mode="delete"/></classes><attList><attDef ident="type" mode="change"><valList type="closed" mode="change"><valItem mode="add" ident="transposition"><desc versionDate="2025-10-01" xml:lang="en">dokumentiert eine Wortumstellung im Manuskript</desc></valItem><valItem mode="add" ident="weiser"/></valList></attDef><attDef ident="datcat" mode="delete"/><attDef ident="valueDatcat" mode="delete"/><attDef ident="targetDatcat" mode="delete"/><attDef ident="part" mode="delete"/></attList></elementSpec></schemaSpec>
+                        <moduleRef key="tagdocs" include="att code egXML gi tag val"/>
+                        <classRef key="att.global.linking"/><moduleRef key="linking" include="anchor seg"/><elementSpec ident="seg" mode="change"><classes mode="change"><memberOf key="att.cmc" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.notated" mode="delete"/><memberOf key="att.segLike" mode="delete"/><memberOf key="att.written" mode="delete"/></classes><attList><attDef ident="type" mode="change"><valList type="closed" mode="change"><valItem mode="add" ident="transposition"><desc versionDate="2025-10-01" xml:lang="en">dokumentiert eine Wortumstellung im Manuskript</desc></valItem><valItem mode="add" ident="weiser"/></valList></attDef><attDef ident="datcat" mode="delete"/><attDef ident="valueDatcat" mode="delete"/><attDef ident="targetDatcat" mode="delete"/><attDef ident="part" mode="delete"/></attList></elementSpec></schemaSpec>
                 </body>
         </text>
 </TEI>
